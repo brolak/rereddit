@@ -1,3 +1,7 @@
-app.controller('NavCtrl', function() {
-  //todo - you may find it useful to use this controller for the navbar functionality
+app.controller('NavCtrl', function($scope,$rootScope,$http) {
+  $scope.logout = function() {
+    localStorage.removeItem("user");
+    $rootScope.currentUser = null;
+    delete $http.defaults.headers.common.Authorization;
+  }
 });
